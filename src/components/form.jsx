@@ -5,11 +5,15 @@ export default function Form({
   onChange
 }) {
   return <>
-    <label>{label}: </label>
-    <input 
-      name={name}
-      value={data}
-      onChange={onChange}
-    />
+    <div>
+      <label>{label}: </label>
+      </div>
+      <div>
+      <input 
+        name={name}
+        value={data}
+        onChange={onChange}
+      />
+    </div>
   </>
 }
