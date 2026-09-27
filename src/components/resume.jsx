@@ -1,6 +1,6 @@
 export default function Resume({ resume }) {
   return (
-    <>
+    <div>
       <h1>{resume.name}</h1>
 
       <h3>
@@ -37,6 +37,6 @@ export default function Resume({ resume }) {
           </ul>
         </div>
       ))}
-    </>
+    </div>
   )
 }
