@@ -23,11 +23,7 @@ const exampleResume = {
       position: "Roadrunning Intern",
       startDate: "June 2026",
       endDate: "August 2026",
-      highlights: [
-        "Delivered 1000 deliverables",
-        "Solved 2000 solutions",
-        "Synergized 3000 synergies",
-        ]
+      highlights: "Delivered 1000 deliverables. Solved 2000 solutions. Synergized 3000 synergies"
     }
   ]
 }
@@ -82,6 +78,45 @@ export default function App() {
     }))
   }
   
+  function handlePracticalChange(id, field, value) {
+    setResume(prev => ({
+      ...prev,
+      practicalExperience: prev.practicalExperience.map(practical =>
+        practical.id === id
+          ? { ...practical, [field]: value }
+          : practical
+      )
+    }))
+  }
+
+  function addPractical() {
+    const newPractical = {
+      id: crypto.randomUUID(),
+      companyName: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      highlights: ""
+    }
+
+    setResume(prev => ({
+      ...prev,
+      practicalExperience: [
+        ...prev.educationalExperience,
+        newPractical,
+      ],
+    }))
+  }
+
+  function removePractical(id) {
+    setResume(prev => ({
+      ...prev,
+      practicalExperience: prev.practicalExperience.filter(
+        practical => practical.id !== id
+      ),
+    }))
+  }
+
   return (
     <>
     <Sidebar 
@@ -90,6 +125,9 @@ export default function App() {
       handleEducationChange={handleEducationChange}
       addEducation={addEducation}
       removeEducation={removeEducation}
+      handlePracticalChange={handlePracticalChange}
+      addPractical={addPractical}
+      removePractical={removePractical}
     />
     <Resume resume={resume}/>
     </>

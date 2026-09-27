@@ -1,12 +1,16 @@
 import GeneralInfo from "./generalInfo"
 import EducationForm from "./education"
+import PracticalForm from "./practical"
 
 export default function Sidebar({
   resume,
   onChange,
   handleEducationChange,
   addEducation,
-  removeEducation
+  removeEducation,
+  handlePracticalChange,
+  addPractical,
+  removePractical
 }) {
 
   return (
@@ -29,6 +33,17 @@ export default function Sidebar({
         />
       ))}
 
+      <h2>Experience</h2>
+      <button onClick={addPractical}>
+        Add Experience
+      </button>
+      {resume.practicalExperience.map(practical => (
+        <PracticalForm
+          practicalData={practical}
+          onChange={handlePracticalChange}
+          onRemove={removePractical}
+        />
+      ))}
     </div>
 
   )

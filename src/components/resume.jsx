@@ -1,6 +1,6 @@
 export default function Resume({ resume }) {
   return (
-    <div>
+    <div class="resume">
       <h1>{resume.name}</h1>
 
       <h3>
@@ -28,13 +28,7 @@ export default function Resume({ resume }) {
           <p>
             {experience.startDate} - {experience.endDate}
           </p>
-          <ul>
-          {experience.highlights.map((highlight, index) => (
-            <li key={index}>
-              {highlight}
-            </li>
-          ))}
-          </ul>
+          {experience.highlights}
         </div>
       ))}
     </div>

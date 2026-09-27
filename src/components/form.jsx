@@ -2,18 +2,29 @@ export default function Form({
   label,
   name,
   data,
-  onChange
+  onChange,
+  useTextarea = false
 }) {
   return <>
     <div>
       <label>{label}: </label>
       </div>
       <div>
-      <input 
-        name={name}
-        value={data}
-        onChange={onChange}
-      />
+      {useTextarea ? 
+        <textarea 
+          name={name}
+          onChange={onChange}
+        >
+          {data}
+        </textarea>
+        :
+        <input 
+          name={name}
+          value={data}
+          onChange={onChange}
+        />
+      }
+      
     </div>
   </>
 }
