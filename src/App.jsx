@@ -33,11 +33,20 @@ const exampleResume = {
 function App() {
   const [resume, setResume] = useState(exampleResume)
 
+  function handleChange(e) {
+    const { name, value } = e.target;
+
+    setResume(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+  
   return (
     <>
     <Sidebar 
       resume={resume}
-      onChange={setResume}
+      onChange={handleChange}
     />
     <Resume resume={resume}/>
     </>
