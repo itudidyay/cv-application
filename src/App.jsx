@@ -9,6 +9,7 @@ const exampleResume = {
   phoneNumber: "123-456-7890",
   educationalExperience: [
     {
+      id: crypto.randomUUID(),
       schoolName: "Northeast Southwest University",
       degree: "Geography B.S.",
       startDate: "2024",
@@ -17,6 +18,7 @@ const exampleResume = {
   ],
   practicalExperience: [
     {
+      id: crypto.randomUUID(),
       companyName: "Acme LCC",
       position: "Roadrunning Intern",
       startDate: "June 2026",
@@ -30,7 +32,7 @@ const exampleResume = {
   ]
 }
 
-function App() {
+export default function App() {
   const [resume, setResume] = useState(exampleResume)
 
   function handleChange(e) {
@@ -41,16 +43,55 @@ function App() {
       [name]: value,
     }));
   }
+
+  function handleEducationChange(id, field, value) {
+    setResume(prev => ({
+      ...prev,
+      educationalExperience: prev.educationalExperience.map(education =>
+        education.id === id
+          ? { ...education, [field]: value }
+          : education
+      )
+    }))
+  }
+
+  function addEducation() {
+    const newEducation = {
+      id: crypto.randomUUID(),
+      schoolName: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+    }
+
+    setResume(prev => ({
+      ...prev,
+      educationalExperience: [
+        ...prev.educationalExperience,
+        newEducation,
+      ],
+    }))
+  }
+
+  function removeEducation(id) {
+    setResume(prev => ({
+      ...prev,
+      educationalExperience: prev.educationalExperience.filter(
+        education => education.id !== id
+      ),
+    }))
+  }
   
   return (
     <>
     <Sidebar 
       resume={resume}
       onChange={handleChange}
+      handleEducationChange={handleEducationChange}
+      addEducation={addEducation}
+      removeEducation={removeEducation}
     />
     <Resume resume={resume}/>
     </>
   )
 }
-
-export default App
