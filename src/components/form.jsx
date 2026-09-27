@@ -13,9 +13,9 @@ export default function Form({
       {useTextarea ? 
         <textarea 
           name={name}
+          value={data}
           onChange={onChange}
         >
-          {data}
         </textarea>
         :
         <input 

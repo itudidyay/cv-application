@@ -2,11 +2,10 @@ import Form from "./form"
 
 export default function EducationForm({
   educationData,
-  id,
   onChange,
   onRemove }) {
   return (
-    <div id={id}>
+    <div>
       <Form
         label="School"
         name="schoolName"

@@ -2,11 +2,10 @@ import Form from "./form"
 
 export default function PracticalForm({
   practicalData,
-  key,
   onChange,
   onRemove }) {
   return (
-    <div key={key}>
+    <div>
       <Form
         label="Company"
         name="companyName"
