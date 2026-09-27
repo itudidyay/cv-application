@@ -2,16 +2,17 @@ import Form from "./form"
 
 export default function PracticalForm({
   practicalData,
+  key,
   onChange,
   onRemove }) {
   return (
-    <div>
+    <div key={key}>
       <Form
         label="Company"
         name="companyName"
         data={practicalData.companyName}
         onChange={e =>
-          onChange(practicalData.id, "schoolName", e.target.value)}
+          onChange(practicalData.id, "companyName", e.target.value)}
       />
       
       <Form

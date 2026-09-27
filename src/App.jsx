@@ -9,7 +9,7 @@ const exampleResume = {
   phoneNumber: "123-456-7890",
   educationalExperience: [
     {
-      id: crypto.randomUUID(),
+      id: "59700a5d-794c-4d3b-83e6-a5bf34ca75b0",
       schoolName: "Northeast Southwest University",
       degree: "Geography B.S.",
       startDate: "2024",
@@ -18,7 +18,7 @@ const exampleResume = {
   ],
   practicalExperience: [
     {
-      id: crypto.randomUUID(),
+      id: "6c41a05c-d314-4c6d-ab10-829ca2de0366",
       companyName: "Acme LCC",
       position: "Roadrunning Intern",
       startDate: "June 2026",
@@ -102,7 +102,7 @@ export default function App() {
     setResume(prev => ({
       ...prev,
       practicalExperience: [
-        ...prev.educationalExperience,
+        ...prev.practicalExperience,
         newPractical,
       ],
     }))

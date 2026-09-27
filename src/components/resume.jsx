@@ -9,8 +9,8 @@ export default function Resume({ resume }) {
 
       <h2>Education</h2>
 
-      {resume.educationalExperience.map((education, index) => (
-        <div key={index}>
+      {resume.educationalExperience.map((education) => (
+        <div key={education.id}>
           <h3>{education.schoolName}</h3> 
           <h3>{education.degree}</h3>
           <p>
@@ -21,8 +21,8 @@ export default function Resume({ resume }) {
 
       <h2>Experience</h2>
 
-      {resume.practicalExperience.map((experience, index) => (
-        <div key={index}>
+      {resume.practicalExperience.map((experience) => (
+        <div key={experience.id}>
           <h3>{experience.companyName}</h3>
           <p>{experience.position}</p>
           <p>
