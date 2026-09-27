@@ -1,6 +1,6 @@
 export default function Resume({ resume }) {
   return (
-    <div class="resume">
+    <div className="resume">
       <h1>{resume.name}</h1>
 
       <h3>
